@@ -21,18 +21,16 @@
         .top-nav {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.5);
         }
-        .top-nav .left-icons {
+        .nav-links {
+            display: flex;
+        }
+        .right-icons {
             display: flex;
             align-items: center;
-        }
-        .top-nav .left-icons a {
-            margin-right: 15px;
-        }
-        .top-nav .nav-links {
-            display: flex;
         }
         .top-nav a {
             color: white;
@@ -45,6 +43,9 @@
         }
         .top-nav a:hover, .top-nav a.active {
             background-color: #1f2937;
+        }
+        .right-icons a {
+            margin-left: 15px;
         }
         .main-content {
             flex-grow: 1;
@@ -62,22 +63,23 @@
 </head>
 <body>
     <div class="top-nav">
-        <div class="left-icons">
-            <a href="#" title="Server" onclick="window.open('YOUR_DISCORD_INVITE_LINK', '_blank')">
-                <img src="discord-icon.png" alt="Discord Server" width="24" height="24">
-            </a>
-            <a href="#" title="Account" onclick="copyUsername()">
-                <img src="discord-icon.png" alt="Discord Account" width="24" height="24">
-            </a>
-            <a href="https://github.com/EducatedSuddenBucket" target="_blank" title="EducatedSuddenBucket">
-                <img src="github-icon.png" alt="GitHub" width="24" height="24">
-            </a>
-            <a href="#" title="Email" onclick="copyEmail()">
-                <img src="mail-icon.png" alt="Email" width="24" height="24">
-            </a>
-        </div>
         <div class="nav-links">
             <a href="index" class="active">Home</a>
+            <a href="network.html">Network</a>
+        </div>
+        <div class="right-icons">
+            <a href="#" title="Server" onclick="window.open('YOUR_DISCORD_INVITE_LINK', '_blank')">
+                <img src="data:image/png;base64,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" alt="Discord Server" width="24" height="24">
+            </a>
+            <a href="#" title="Account" onclick="copyUsername()">
+                <img src="data:image/png;base64,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" alt="Discord Account" width="24" height="24">
+            </a>
+            <a href="https://github.com/EducatedSuddenBucket" target="_blank" title="EducatedSuddenBucket">
+                <img src="https://github.com/favicon.ico" alt="GitHub" width="24" height="24">
+            </a>
+            <a href="#" title="Email" onclick="copyEmail()">
+                <img src="https://cdn-icons-png.flaticon.com/512/666/666162.png" alt="Email" width="24" height="24">
+            </a>
         </div>
     </div>
     <div class="main-content">

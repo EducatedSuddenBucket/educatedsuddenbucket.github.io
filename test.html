@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NO ONE CARES - EducatedSuddenBucket - Home</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .top-nav .left-icons {
+            display: flex;
+            align-items: center;
+        }
+        .top-nav .left-icons a {
+            margin-right: 15px;
+        }
+        .top-nav .nav-links {
+            display: flex;
+        }
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .top-nav a:hover, .top-nav a.active {
+            background-color: #1f2937;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .info-container {
+            margin-top: 20px;
+        }
+        .intro {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <div class="left-icons">
+            <a href="#" title="Server" onclick="window.open('YOUR_DISCORD_INVITE_LINK', '_blank')">
+                <img src="discord-icon.png" alt="Discord Server" width="24" height="24">
+            </a>
+            <a href="#" title="Account" onclick="copyUsername()">
+                <img src="discord-icon.png" alt="Discord Account" width="24" height="24">
+            </a>
+            <a href="https://github.com/EducatedSuddenBucket" target="_blank" title="EducatedSuddenBucket">
+                <img src="github-icon.png" alt="GitHub" width="24" height="24">
+            </a>
+            <a href="#" title="Email" onclick="copyEmail()">
+                <img src="mail-icon.png" alt="Email" width="24" height="24">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index" class="active">Home</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="info-container">
+            <a href="https://discord.com/users/1167825360151380032" target="_blank"><img src="https://lanyard.cnrad.dev/api/1167825360151380032?bg=transparent" alt="Discord Profile"></a>
+            <div class="intro">
+                <h1>Hey There! I am EducatedSuddenBucket</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyUsername() {
+            navigator.clipboard.writeText("educatedsuddenbucket");
+            window.alert("Username copied to clipboard!");
+        }
+
+        function copyEmail() {
+            navigator.clipboard.writeText("hi@esb.is-a.dev");
+            window.alert("Email copied to clipboard!");
+        }
+    </script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,10 +9,7 @@
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
-            background-image: url('background.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-color: #0d1117;
             color: white;
             display: flex;
             flex-direction: column;
@@ -20,20 +18,12 @@
         }
         .top-nav {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            position: relative;
+            background-color: #161b22;
         }
-        .nav-links {
+        .top-nav .left, .top-nav .right {
             display: flex;
-        }
-        .right-icons {
-            display: flex;
-            align-items: center;
-            position: absolute;
-            right: 20px;
         }
         .top-nav a {
             color: white;
@@ -47,14 +37,20 @@
         .top-nav a:hover, .top-nav a.active {
             background-color: #1f2937;
         }
-        .right-icons a {
-            margin-left: 15px;
+        .top-nav img {
+            width: 50px;
+            height: 50px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .top-nav img:hover {
+            filter: brightness(0.8);
         }
         .main-content {
             flex-grow: 1;
             padding: 20px;
             overflow-y: auto;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: #161b22;
         }
         .info-container {
             margin-top: 20px;
@@ -62,27 +58,62 @@
         .intro {
             margin-bottom: 20px;
         }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
+    <script>
+        function copyToClipboard(text, message) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert(message);
+            });
+        }
+    </script>
 </head>
 <body>
     <div class="top-nav">
-        <div class="nav-links">
+        <div class="left">
             <a href="index" class="active">Home</a>
             <a href="network.html">Network</a>
         </div>
-        <div class="right-icons">
-            <a href="#" title="Server" onclick="window.open('YOUR_DISCORD_INVITE_LINK', '_blank')">
-                <img src="discord-icon.png" alt="Discord Server" width="24" height="24">
-            </a>
-            <a href="#" title="Account" onclick="copyUsername()">
-                <img src="discord-icon.png" alt="Discord Account" width="24" height="24">
-            </a>
-            <a href="https://github.com/EducatedSuddenBucket" target="_blank" title="EducatedSuddenBucket">
-                <img src="https://github.com/favicon.ico" alt="GitHub" width="24" height="24">
-            </a>
-            <a href="#" title="Email" onclick="copyEmail()">
-                <img src="https://cdn-icons-png.flaticon.com/512/666/666162.png" alt="Email" width="24" height="24">
-            </a>
+        <div class="right">
+            <div class="tooltip">
+                <img src="https://img.icons8.com/?size=100&id=UWBXWx2eN8Pt&format=png&color=FFFFFF" alt="GitHub" onclick="window.open('https://github.com/EducatedSuddenBucket', '_blank')">
+                <span class="tooltiptext">EducatedSuddenBucket</span>
+            </div>
+            <div class="tooltip">
+                <img src="https://img.icons8.com/?size=100&id=85119&format=png&color=FFFFFF" alt="Mail" onclick="copyToClipboard('hi@esb.is-a.dev', 'Email copied to clipboard!')">
+                <span class="tooltiptext">hi@esb.is-a.dev</span>
+            </div>
+            <div class="tooltip">
+                <img src="https://img.icons8.com/?size=100&id=25627&format=png&color=FFFFFF" alt="Discord Server" onclick="window.open('https://discord.gg/YOUR_SERVER_INVITE', '_blank')">
+                <span class="tooltiptext">Server</span>
+            </div>
+            <div class="tooltip">
+                <img src="https://img.icons8.com/?size=100&id=25627&format=png&color=FFFFFF" alt="Discord Account" onclick="copyToClipboard('educatedsuddenbucket', 'Username copied to clipboard!')">
+                <span class="tooltiptext">Account</span>
+            </div>
         </div>
     </div>
     <div class="main-content">
@@ -93,17 +124,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function copyUsername() {
-            navigator.clipboard.writeText("educatedsuddenbucket");
-            window.alert("Username copied to clipboard!");
-        }
-
-        function copyEmail() {
-            navigator.clipboard.writeText("hi@esb.is-a.dev");
-            window.alert("Email copied to clipboard!");
-        }
-    </script>
 </body>
 </html>

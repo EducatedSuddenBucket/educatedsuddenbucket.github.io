@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,65 +14,128 @@
     <link rel="icon" type="image/png" href="https://esb.is-a.dev/image.png">
     <title>EducatedSuddenBucket</title>
     <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
+        /* General reset */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
             background-color: #0d1117;
-            color: white;
+            color: #c9d1d9;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             overflow-x: hidden;
         }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+
+        /* Top Navigation */
         .top-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            background-color: #0d1117;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            background-color: rgba(13, 17, 23, 0.9);
+            z-index: 1000;
         }
+
         .top-nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 20px;
-            padding: 10px;
-            border-radius: 8px;
-            transition: background-color 0.3s, border-color 0.3s;
+            margin: 0 20px;
+            font-size: 18px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
+
         .top-nav a:hover, .top-nav a.active {
             background-color: #21262d;
         }
-        .main-content {
-            flex-grow: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .info-container {
-            margin-top: 20px;
-        }
-        .intro {
-            margin-bottom: 20px;
-        }
-        .social-icons {
-            display: flex;
-            gap: 25px;
-        }
+
+        /* Social Icons */
         .social-icons i {
-            font-size: 36px;
+            font-size: 28px;
+            margin-left: 20px;
+            color: #c9d1d9;
+            transition: color 0.3s ease;
             cursor: pointer;
-            transition: color 0.3s;
         }
+
         .social-icons i:hover {
             color: #58a6ff;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 100px 0 50px;
+            text-align: center;
+        }
+
+        .main-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .main-content img {
+            margin: 20px 0;
+            border-radius: 10px;
+            width: 350px;
+            max-width: 100%;
+        }
+
+        .intro p {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            color: #8b949e;
+        }
+
+        .intro button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #58a6ff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .intro button:hover {
+            background-color: #1f6feb;
+        }
+
+        @media (max-width: 768px) {
+            .top-nav a {
+                margin: 0 10px;
+                font-size: 16px;
+            }
+
+            .social-icons i {
+                font-size: 24px;
+            }
+
+            .main-content h1 {
+                font-size: 2.5rem;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    <div class="top-nav">
+    <div class="top-nav container">
         <div>
             <a href="index" class="active">Home</a>
             <a href="network.html">Network</a>
@@ -82,26 +146,31 @@
             <i class="fas fa-envelope" title="hi@esb.is-a.dev" onclick="copyEmail()"></i>
         </div>
     </div>
-    <div class="main-content">
-        <div class="info-container">
-            <a href="https://discord.com/users/1167825360151380032" target="_blank"><img src="https://lanyard.cnrad.dev/api/1167825360151380032?bg=transparent" alt="Discord Profile"></a>
-            <div class="intro">
-                <h1>Hey There! I am EducatedSuddenBucket</h1>
-            </div>
+
+    <div class="main-content container">
+        <a href="https://discord.com/users/1167825360151380032" target="_blank"><img src="https://lanyard.cnrad.dev/api/1167825360151380032?bg=transparent" alt="Discord Profile"></a>
+        <div class="intro">
+            <h1>Welcome! I am EducatedSuddenBucket</h1>
+            <p>Full-stack developer and technology enthusiast. Let's connect!</p>
+            <button onclick="openGitHub()">View My GitHub</button>
         </div>
     </div>
+
     <script>
         function copyDiscordUsername() {
             navigator.clipboard.writeText("educatedsuddenbucket");
             window.alert("Discord username copied!");
         }
+
         function openGitHub() {
             window.open("https://github.com/EducatedSuddenBucket", "_blank");
         }
+
         function copyEmail() {
             navigator.clipboard.writeText("hi@esb.is-a.dev");
             window.alert("Email copied!");
         }
     </script>
 </body>
-</html>
+
+    </html>

@@ -1,20 +1,34 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EducatedSuddenBucket">
+    <meta name="description" content="EducatedSuddenBucket - Developer & Creator">
     <meta name="author" content="EducatedSuddenBucket">
     <meta property="og:title" content="EducatedSuddenBucket">
-    <meta property="og:description" content="Welcome to my site.">
-    <meta property="og:image" content="https://mcstatus.is-a.dev/icon.gif">
-    <meta property="og:url" content="https://esb.is-a.dev/index">
+    <meta property="og:description" content="Welcome to my digital space.">
+    <meta property="og:image" content="https://esb.is-a.dev/icon.png">
+    <meta property="og:url" content="https://esb.is-a.dev/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="EducatedSuddenBucket">
-    <link rel="icon" type="image/png" href="https://esb.is-a.dev/image.png">
+    <link rel="icon" type="image/png" href="https://esb.is-a.dev/icon.png.png">
     <title>EducatedSuddenBucket</title>
     <style>
-        /* General reset */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --bg-dark: #0f172a;
+            --bg-dark-container: #1e293b;
+            --text-dark: #e0e0e0;
+            --accent-dark: #64ffda;
+            --secondary-dark: #7f5af0;
+            --bg-light: #f1f5f9;
+            --bg-light-container: #ffffff;
+            --text-light: #1a202c;
+            --accent-light: #0366d6;
+            --secondary-light: #805ad5;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -22,140 +36,189 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden;
         }
 
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding-top: 50px;
+            padding: 40px 20px;
+            background-color: var(--bg-dark-container);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
-        /* Top Navigation */
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            background-color: rgba(13, 17, 23, 0.9);
-            z-index: 1000;
-        }
-
-        .top-nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 18px;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .top-nav a:hover, .top-nav a.active {
-            background-color: #21262d;
-        }
-
-        /* Social Icons */
-        .social-icons i {
-            font-size: 28px;
-            margin-left: 20px;
-            color: #c9d1d9;
-            transition: color 0.3s ease;
+        #theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 24px;
             cursor: pointer;
         }
 
-        .social-icons i:hover {
-            color: #58a6ff;
+        main {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 0;
         }
 
-        /* Main Content */
-        .main-content {
-            padding: 100px 0 50px;
+        .hero {
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .main-content h1 {
-            font-size: 3rem;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--secondary-dark), var(--accent-dark));
+            opacity: 0.1;
+            z-index: -1;
+            border-radius: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
             margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent-dark), var(--secondary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s ease infinite;
+            word-break: break-word;
         }
 
-        .main-content img {
-            margin: 20px 0;
-            border-radius: 10px;
-            width: 350px;
-            max-width: 100%;
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .intro p {
+        .hero p {
             font-size: 1.2rem;
-            margin: 15px 0;
-            color: #8b949e;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            font-size: 28px;
+            color: var(--text-dark);
+            margin: 0 15px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-dark);
+            transform: translateY(-5px);
+        }
+
+        body.light-mode {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+
+        body.light-mode .container {
+            background-color: var(--bg-light-container);
+        }
+
+        body.light-mode .social-icons a {
+            color: var(--text-light);
+        }
+
+        body.light-mode .social-icons a:hover {
+            color: var(--accent-light);
+        }
+
+        body.light-mode .hero h1 {
+            background: linear-gradient(45deg, var(--accent-light), var(--secondary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light-mode #theme-toggle {
+            color: var(--text-light);
         }
 
         @media (max-width: 768px) {
-            .top-nav a {
-                margin: 0 10px;
-                font-size: 16px;
+            .hero h1 {
+                font-size: 2.3rem;
             }
 
-            .social-icons i {
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .social-icons a {
                 font-size: 24px;
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: clamp(1.5rem, 5vw, 2rem);
             }
 
-            .main-content h1 {
-                font-size: 2.5rem;
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .social-icons a {
+                font-size: 20px;
+                margin: 0 8px;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </head>
-
 <body>
-    <div class="top-nav container">
-        <div>
-            <a href="index" class="active">Home</a>
-            <a href="network.html">Network</a>
-        </div>
-        <div class="social-icons">
-            <i class="fab fa-discord" title="educatedsuddenbucket" onclick="copyDiscordUsername()"></i>
-            <i class="fab fa-github" title="EducatedSuddenBucket" onclick="openGitHub()"></i>
-            <i class="fas fa-envelope" title="hi@esb.is-a.dev" onclick="copyEmail()"></i>
-        </div>
-    </div>
-
-    <div class="main-content container">
-        <a href="https://discord.com/users/1167825360151380032" target="_blank"><img src="https://lanyard.cnrad.dev/api/1167825360151380032?bg=transparent" alt="Discord Profile"></a>
-        <div class="intro">
-            <h1>Welcome! I am EducatedSuddenBucket</h1>
-            <p>I am a human</p>
-           
-        </div>
-    </div>
+    <main>
+        <section class="hero container">
+            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+            <h1>EducatedSuddenBucket</h1>
+            <p>Yes I am a human being.</p>
+            <div class="social-icons">
+                <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://github.com/EducatedSuddenBucket" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:hi@esb.is-a.dev" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+    </main>
 
     <script>
-        function copyDiscordUsername() {
-            navigator.clipboard.writeText("educatedsuddenbucket");
-            window.alert("Discord username copied!");
-        }
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
 
-        function openGitHub() {
-            window.open("https://github.com/EducatedSuddenBucket", "_blank");
-        }
-
-        function copyEmail() {
-            navigator.clipboard.writeText("hi@esb.is-a.dev");
-            window.alert("Email copied!");
-        }
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const icon = themeToggle.querySelector('i');
+            if (body.classList.contains('light-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
     </script>
 </body>
-
-    </html>
+</html>

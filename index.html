@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EducatedSuddenBucket - Developer & Creator">
+    <meta name="description" content="EducatedSuddenBucket - Developer">
     <meta name="author" content="EducatedSuddenBucket">
     <meta property="og:title" content="EducatedSuddenBucket">
-    <meta property="og:description" content="Welcome to my digital space.">
+    <meta property="og:description" content="A random person on the internet.">
     <meta property="og:image" content="https://esb.is-a.dev/icon.png">
     <meta property="og:url" content="https://esb.is-a.dev/">
     <meta property="og:type" content="website">
@@ -49,7 +49,7 @@
         .container {
             width: 90%;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 40px 20px;
             background-color: var(--bg-dark-container);
             border-radius: 20px;
@@ -73,26 +73,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 0;
+            flex-direction: column;
+            padding: 40px 0;
         }
 
         .hero {
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, var(--secondary-dark), var(--accent-dark));
-            opacity: 0.1;
-            z-index: -1;
-            border-radius: 20px;
+            margin-bottom: 40px;
         }
 
         .hero h1 {
@@ -102,7 +91,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradientShift 5s ease infinite;
-            word-break: break-word;
         }
 
         @keyframes gradientShift {
@@ -115,6 +103,23 @@
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto 30px;
+        }
+
+        .projects {
+            text-align: center;
+        }
+
+        .projects h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .projects .project {
+            background-color: var(--bg-dark-container);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .social-icons {
@@ -174,34 +179,31 @@
                 margin: 0 10px;
             }
         }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: clamp(1.5rem, 5vw, 2rem);
-            }
-
-            .hero p {
-                font-size: 0.9rem;
-            }
-
-            .social-icons a {
-                font-size: 20px;
-                margin: 0 8px;
-            }
-        }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </head>
 <body>
     <main>
         <section class="hero container">
-            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+            <button id="theme-toggle">
+                <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon">
+                    <path d="M21 12.79A9 9 0 0112.21 3a7 7 0 009.79 9.79z"></path>
+                </svg>
+            </button>
             <h1>EducatedSuddenBucket</h1>
-            <p>Yes I am a human being.</p>
+            <p>A random person on the internet.</p>
             <div class="social-icons">
                 <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
                 <a href="https://github.com/EducatedSuddenBucket" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                 <a href="mailto:hi@esb.is-a.dev" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+
+        <section class="projects container">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>HeatBlock</h3>
+                <p>A Minecraft server status checker with an API and UI. Fully self-hostable with hosted versions available</p>
+                <a href="https://github.com/HeatBlock/HeatBlock">Learn More</a>
             </div>
         </section>
     </main>
@@ -209,15 +211,13 @@
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
+        const themeIcon = document.getElementById('theme-icon');
 
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('light-mode');
-            const icon = themeToggle.querySelector('i');
-            if (body.classList.contains('light-mode')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
+            themeIcon.outerHTML = body.classList.contains('light-mode')
+                ? `<svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line></svg>`
+                : `<svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 0112.21 3a7 7 0 009.79 9.79z"></path></svg>`;
         });
     </script>
 </body>

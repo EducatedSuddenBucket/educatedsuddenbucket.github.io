@@ -212,14 +212,17 @@
          </head>
 
          <body>
-                  <audio controls autoplay>
-    <source src="memory-reboot-over-slowed.mp3" type="audio/mp3">
-</audio>
+                  
 
                   <div class="main-content">
                            <div class="intro">
+                                    <div class="play-button" onclick="playAudio()"><i class="fa-solid fa-play fa-2xl"></i>
+                         </div>
+                                    
+                      <audio id="audio">
+    <source src="memory-reboot-over-slowed.mp3" type="audio/mp3"> </audio>
                                     <h1>Hey There! I am EducatedSuddenBucket</h1>
-                           </div>
+                                  </div>
 
                            <div class="social-icons">
                                     <i class="fab fa-discord" title="Discord" onclick="copyDiscordUsername()"></i>
@@ -274,6 +277,11 @@
 
                                     window.alert("Email copied!");
                            }
-                  </script>
+                 function playAudio() {
+    const audio = document.getElementById("audio");
+    audio.play();
+    const playButton = document.querySelector(".play-button");
+    playButton.remove();
+                 } </script>
          </body>
 </html>
